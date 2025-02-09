@@ -1,4 +1,5 @@
 import { images } from "./images.js";
+
 // const images = [
 //   {
 //     preview:
@@ -72,9 +73,22 @@ galleryEl.innerHTML = createImages(images);
 galleryEl.addEventListener("click", onGalleryClick);
 
 function onGalleryClick(e) {
-  const link = e.target.closest(".gallery-link");
-  console.dir(link);
-  link.preventDefault();
+  e.preventDefault();
+  if (e.target === e.currentTarget) return;
+  // const link = e.target.closest(".gallery-link");
+  const img = e.target.dataset.source;
+
+  showModal(img);
+  console.log("🚀 ~ onGalleryClick ~ img:", img);
+  //   console.dir(link);
+}
+
+function showModal(img) {
+  const instance = basicLightbox.create(`
+    <img src="${img}" width="800" height="600">
+`);
+
+  instance.show();
 }
 
 function createImage({ preview, original, description }) {
