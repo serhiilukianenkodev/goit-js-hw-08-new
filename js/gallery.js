@@ -1,4 +1,4 @@
-import { images } from "/js/images";
+import { images } from "./images";
 // const images = [
 //   {
 //     preview:
