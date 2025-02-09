@@ -75,12 +75,9 @@ galleryEl.addEventListener("click", onGalleryClick);
 function onGalleryClick(e) {
   e.preventDefault();
   if (e.target === e.currentTarget) return;
-  // const link = e.target.closest(".gallery-link");
   const img = e.target.dataset.source;
 
   showModal(img);
-  console.log("🚀 ~ onGalleryClick ~ img:", img);
-  //   console.dir(link);
 }
 
 function showModal(img) {
